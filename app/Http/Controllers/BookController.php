@@ -24,7 +24,7 @@ class BookController extends Controller
         ]);
 
         $book = Book::create($data);
-
+        $book = Book::all();
         return redirect()->route('book.show', $book)->with('status', 'Book created successfully.');
     }
 
@@ -37,6 +37,7 @@ class BookController extends Controller
     }
 
     public function update(Request $request) {
+        
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'author' => 'required|string',
@@ -49,6 +50,7 @@ class BookController extends Controller
     }
     
     public function destroy(Book $book) {
+        $book = Book::find($book);
         $book->delete();
         return redirect()->route('book.index')->with('status', 'Book deleted successfully.');
     }

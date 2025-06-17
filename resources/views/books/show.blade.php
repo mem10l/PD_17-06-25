@@ -12,9 +12,9 @@
         </div>
     @endif
 
-    <form action="{{ route('book.destroy') }}" method="post">
+    <form action="{{ route('book.destroy', $singleBook) }}" method="DELETE">
         @csrf
-        @method('delete')
+        @method('DELETE')
         <input type="submit" value="Dzēst">
     </form>
 

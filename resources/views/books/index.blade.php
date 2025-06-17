@@ -18,6 +18,8 @@
         @foreach($books as $book)
             <li>
                 <h2>{{ $book->title }}</h2>
+                <h2>{{ $book->author }}</h2>
+                <h2>{{ $book->released_at }}</h2>
                 <div>
                     <a href="{{ route('book.show', $book) }}">Show</a>
                     <a href="{{ route('book.edit', $book) }}">Edit</a>
