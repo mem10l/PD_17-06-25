@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -24,7 +23,7 @@ class BookController extends Controller
         ]);
 
         $book = Book::create($data);
-        $book = Book::all();
+
         return redirect()->route('book.show', $book)->with('status', 'Book created successfully.');
     }
 
@@ -36,19 +35,18 @@ class BookController extends Controller
         return view('books.edit', ['editBook' => $book]);
     }
 
-    public function update(Request $request) {
-        
+    public function update(Request $request, Book $book) {
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'author' => 'required|string',
             'released_at' => 'required|date',
         ]);
 
-        $book->update();
+        $book->update($data);
 
         return redirect()->route('book.show', $book)->with('status', 'Book updated successfully.');
     }
-    
+
     public function destroy(Book $book) {
         $book = Book::find($book);
         $book->delete();

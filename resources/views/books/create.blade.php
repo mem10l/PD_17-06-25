@@ -1,3 +1,5 @@
+<x-app-layout>
+<x-global>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +24,10 @@
         @csrf
         <input type="text" name="title" placeholder="title goes here" value="{{ old('title') }}">
         <input type="text" name="author" placeholder="author goes here" value="{{ old('author') }}">
-        <input type="date" name="released_at" placeholder="date goes here" value="{{ released_at }}">
+        <input type="date" name="released_at" placeholder="date goes here" value="{{ old('released_at') }}">
         <input type="submit" value="create">
     </form>
 </body>
 </html>
+</x-app-layout>
+</x-global>

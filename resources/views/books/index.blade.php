@@ -1,3 +1,5 @@
+<x-app-layout>
+<x-global>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,3 +31,5 @@
     </ul>
 </body>
 </html>
+</x-app-layout>
+</x-global>
